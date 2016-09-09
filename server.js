@@ -1,8 +1,13 @@
+require('newrelic');
+var ua = require('universal-analytics');
 var express = require('express');
 var app = express();
 var scraper = require('./scraper');
 
 app.get('/:cardNumber?', (req, res) => {
+  var visitor = ua('UA-83437472-1');
+  visitor.pageview('/').send();
+
   var cardNumber = req.params.cardNumber;
   
   if (!cardNumber) {
@@ -19,8 +24,8 @@ app.get('/:cardNumber?', (req, res) => {
 
   scraper.queryCardAmount(cardNumber, (err, amount) => {
     if (err) {
-      return res.status(500).json({
-        error: err
+      return res.status(err.status).json({
+        error: err.message
       });
     }
     
@@ -30,4 +35,4 @@ app.get('/:cardNumber?', (req, res) => {
   });
 });
 
-app.listen(3000, () => console.log('Card proxy listening on port 3000'));
+app.listen(3002, () => console.log('Card proxy listening on port 3000'));
