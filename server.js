@@ -1,4 +1,3 @@
-require('newrelic');
 var ua = require('universal-analytics');
 var express = require('express');
 var app = express();
