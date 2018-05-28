@@ -4,6 +4,9 @@
   "description": "",
   "author": "Jesper Lindström",
   "private": true,
+  "scripts": {
+    "start": "node server"
+  },
   "dependencies": {
     "async": "^2.0.1",
     "express": "^4.14.0",

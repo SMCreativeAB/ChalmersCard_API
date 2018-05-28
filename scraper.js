@@ -2,7 +2,7 @@ var BROWSER_INSTANCES = 3;
 var horseman = require('node-horseman');
 var async = require('async');
 
-var url = 'http://kortladdning3.chalmerskonferens.se/default.aspx';
+var url = 'https://kortladdning3.chalmerskonferens.se/default.aspx';
 var options = {
   loadImages: false,
   //switchToNewTab: true,
